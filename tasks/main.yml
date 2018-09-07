@@ -1,0 +1,82 @@
+---
+- name: Install common tools
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+    cache_valid_time: "{{ apt_cache_valid_time | default(3600) }}"
+  with_items:
+    - git-core
+    - vim
+    - curl
+    - zsh
+    - mc
+    - python-pycurl
+    - software-properties-common
+    - htop
+    - atop
+    - build-essential
+    - python-dev
+    - python-pip
+
+- name: Install atop defaults
+  template:
+    src: atop.default.j2
+    dest: /etc/default/atop
+  notify: restart atop
+
+- name: Install extra tools
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ tools_present }}"
+
+- name: Upgrade setuptools
+  pip:
+    name: setuptools
+    state: latest
+
+- name: Upgrade pip
+  pip:
+    name: pip
+    state: latest
+
+- name: Install Glances monitoring tool
+  pip:
+    name: Glances
+
+- name: Install extra python packages
+  pip:
+    name: "{{ item }}"
+  with_items: "{{ tools_extra_python }}"
+
+- name: Set default locale
+  apt:
+    name: language-pack-en
+    update_cache: yes
+    cache_valid_time: "{{ apt_cache_valid_time | default(3600) }}"
+
+- name: Set timezone variables
+  copy:
+    content: "{{ env_timezone }}\n"
+    dest: /etc/timezone
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+
+- name: Install unattended upgrade package
+  apt:
+    name: unattended-upgrades
+    update_cache: yes
+    cache_valid_time: "{{ apt_cache_valid_time | default(3600) }}"
+
+- name: Setup unattended upgrade configuration
+  template:
+    src: 50unattended-upgrades.j2
+    dest: /etc/apt/apt.conf.d/50unattended-upgrades
+
+- name: Setup unattended upgrade configuration periodic
+  template:
+    src: 10periodic.j2
+    dest: /etc/apt/apt.conf.d/10periodic
