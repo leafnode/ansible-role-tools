@@ -56,15 +56,6 @@
     update_cache: yes
     cache_valid_time: "{{ apt_cache_valid_time | default(3600) }}"
 
-- name: Set timezone variables
-  copy:
-    content: "{{ env_timezone }}\n"
-    dest: /etc/timezone
-    owner: root
-    group: root
-    mode: 0644
-    backup: yes
-
 - name: Install unattended upgrade package
   apt:
     name: unattended-upgrades
