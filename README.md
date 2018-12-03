@@ -18,3 +18,7 @@ tools_present: []
 tools_extra_python: []
 
 ```
+
+# Development
+
+Please check [development guide](DEVELOPMENT.md) for details about developing and testing this role.

@@ -53,13 +53,13 @@
 - name: Set default locale
   apt:
     name: language-pack-en
-    update_cache: yes
+    update_cache: true
     cache_valid_time: "{{ apt_cache_valid_time | default(3600) }}"
 
 - name: Install unattended upgrade package
   apt:
     name: unattended-upgrades
-    update_cache: yes
+    update_cache: true
     cache_valid_time: "{{ apt_cache_valid_time | default(3600) }}"
 
 - name: Setup unattended upgrade configuration
