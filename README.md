@@ -1,6 +1,6 @@
 # tools
 
-[![Build Status](https://travis-ci.com/iroquoisorg/ansible-role-tools.svg?branch=master)](https://travis-ci.com/iroquoisorg/ansible-role-memcached)
+[![Build Status](https://travis-ci.com/iroquoisorg/ansible-role-tools.svg?branch=master)](https://travis-ci.com/iroquoisorg/ansible-role-tools)
 
 Ansible role for tools
 
@@ -13,10 +13,9 @@ This role was prepared and tested for Ubuntu 16.04.
 # Default settings
 
 ```
-
+---
 tools_present: []
 tools_extra_python: []
-
 ```
 
 # Development
