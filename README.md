@@ -1,6 +1,6 @@
 # tools
 
-[![Build Status](https://travis-ci.com/iroquoisorg/ansible-role-tools.svg?branch=master)](https://travis-ci.com/iroquoisorg/ansible-role-tools)
+[![Build Status](https://travis-ci.com/leafnode/ansible-role-tools.svg?branch=master)](https://travis-ci.com/leafnode/ansible-role-tools)
 
 Ansible role for tools
 
@@ -8,7 +8,7 @@ This role was prepared and tested for Ubuntu 16.04.
 
 # Installation
 
-`$ ansible-galaxy install iroquoisorg.tools`
+`$ ansible-galaxy install leafnode.tools`
 
 # Default settings
 
