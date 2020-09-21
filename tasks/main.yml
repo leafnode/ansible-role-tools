@@ -11,13 +11,13 @@
     - curl
     - zsh
     - mc
-    - python3-pycurl
+    - "python3-pycurl"
     - software-properties-common
     - htop
     - atop
     - build-essential
-    - python3-dev
-    - python3-pip
+    - "python3-dev"
+    - "python3-pip"
 
 - name: Install atop defaults
   template:
