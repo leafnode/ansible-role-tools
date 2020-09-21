@@ -2,7 +2,7 @@
 - name: Install common tools
   apt:
     name: "{{ item }}"
-    state: latest
+    state: present
     update_cache: true
     cache_valid_time: "{{ apt_cache_valid_time | default(3600) }}"
   with_items:
@@ -28,18 +28,18 @@
 - name: Install extra tools
   apt:
     name: "{{ item }}"
-    state: latest
+    state: present
   with_items: "{{ tools_present }}"
 
 - name: Upgrade setuptools
   pip:
     name: setuptools
-    state: latest
+    state: present
 
 - name: Upgrade pip
   pip:
     name: pip
-    state: latest
+    state: present
 
 - name: Install Glances monitoring tool
   pip:
