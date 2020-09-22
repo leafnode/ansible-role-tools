@@ -19,7 +19,8 @@ install:
   - pip install molecule
   - pip install docker
 
-#script:
+script:
+  - echo "passed"
 #  - molecule test
 
 notifications:
