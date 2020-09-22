@@ -4,3 +4,5 @@
   become: true
   roles:
     - role: ansible-role-tools
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
